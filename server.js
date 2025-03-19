@@ -27,6 +27,11 @@ app.post('/submit', (req, res) => {
   res.render('draw', { input: 'Form Submission', sideLength });
 });
 
+app.get('/draw', (req, res) => {
+  const sideLength = req.query.sideLength; // Extract the sideLength query parameter
+  res.render('draw', { input: 'Query Parameter', sideLength }); // Pass it to the draw view
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
