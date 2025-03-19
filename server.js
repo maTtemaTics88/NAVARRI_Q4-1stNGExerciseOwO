@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 
 // Handle form submission
 app.post('/submit', (req, res) => { 
-  const { name } = req.body;
-  res.render('draw');
+  const { sideLength } = req.body;
+  res.render('draw', { input: 'Form Submission', sideLength });
 });
 
 app.listen(port, () => {
