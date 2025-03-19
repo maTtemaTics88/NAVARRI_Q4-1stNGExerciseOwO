@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 // Handle form submission
 app.get('/draw', (req, res) => { 
-  const { sideLength } = req.query.sideLength;
+  const { sideLength } = 10;
   res.render('draw', { input: sideLength });
 });
 
