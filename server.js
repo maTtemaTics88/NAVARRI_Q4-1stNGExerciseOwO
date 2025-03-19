@@ -23,8 +23,9 @@ app.get('/', (req, res) => {
 
 // Handle form submission
 app.get('/draw', (req, res) => { 
-  const { sideLength } = req.query; // Extract sideLength from query parameters
-  res.render('draw', { sideLength });
+  const { sideLength } = req.query.sideLength; // Extract sideLength from query parameters
+  const { sideLength2 } = req.query.sideLength2; // Extract sideLength from query parameters
+  res.render('draw', { sideLength, sideLength2 });
 });
 
 app.listen(port, () => {
