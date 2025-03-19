@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 
 // Handle form submission
 app.get('/draw', (req, res) => { 
-  const { sideLength } = 10;
-  res.render('draw', { input: sideLength });
+  const { data } = req.body;
+  res.render('draw', { data });
 });
 
 app.listen(port, () => {
