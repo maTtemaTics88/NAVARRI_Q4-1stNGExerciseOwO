@@ -51,11 +51,11 @@
             // moving to the starting point
             ctx.moveTo(o, o);
             ctx.lineTo(o, o + h);
-            ctx.lineTo(o + b, o);
+            ctx.lineTo(o + b, o + h);
             ctx.lineTo(o, o);
 
             // for placing text
-            ctx.fillText(b, o + (b / 2), o);
+            ctx.fillText(b, o + (b / 2), o + b);
             ctx.fillText(h, o, o + (h / 2));
             ctx.fillText(l, o + (b / 2), o + (h / 2));
             
