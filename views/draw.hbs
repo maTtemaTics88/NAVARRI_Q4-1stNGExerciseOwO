@@ -24,7 +24,7 @@
 
     <!-- Start Content -->
     <div id="home" class="w3-container w3-content w3-padding-64">
-        <h2>Square with Side {{sideLength}} </h2>
+        <h2>Triangle with base {{sideLength}} and hieght {{sideLength2}} </h2>
         <canvas class=" w3-white" id="mycanvas" width="100" height="100"> 
           <!-- do not remove, this defines the drawing area/canvas with size of 100 by 100 -->
         </canvas>
@@ -36,26 +36,28 @@
         function drawSquare() {
 
             // sample use of handlbars 
-            const s = {{sideLength}};
-            const s2 = {{sideLength2}};
+            const b = {{sideLength}};
+            const h = {{sideLength2}};
+            const l = Math.sqrt((b ** 2) + (h ** 2));
+
+            const s = Math.max(b, h);
 
             let canvas = document.getElementById("mycanvas");
             canvas.width = (s + 50);
             canvas.height = (s + 50);
-            console.log(s)
 
             var ctx = canvas.getContext("2d");
             const o = 20; //offset to have space surroundig the square
             // moving to the starting point
             ctx.moveTo(o, o);
-            ctx.lineTo(o, o + s);
-            ctx.lineTo(o + s, o + s)
-            ctx.lineTo(o + s, o);
+            ctx.lineTo(o, o + h);
+            ctx.lineTo(o + b, o);
             ctx.lineTo(o, o);
 
             // for placing text
-            ctx.fillText(s, o + (s / 2), o + s)
-            ctx.fillText(s, o + 0, o + s / 2) 
+            ctx.fillText(b, o + (b / 2), o);
+            ctx.fillText(h, o, o + (h / 2));
+            ctx.fillText(l, o + (b / 2), o + (h / 2));
             
             // to actually display the triangle
             ctx.stroke();
