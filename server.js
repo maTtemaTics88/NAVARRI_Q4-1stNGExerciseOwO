@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 // that came from index.hbs
 app.post('/submit', (req, res) => { 
   const { name } = req.body;
-  res.render('draw', { title: 'Form Submission', name });
+  res.render("draw");
 });
 
 //Makes the app listen to port 3000
