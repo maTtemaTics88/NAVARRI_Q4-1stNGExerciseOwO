@@ -1,34 +1,32 @@
-// Loads the express module
-const express = require("express");
-const hbs = require("hbs");
-
-const bodyParser = require("body-parser");
-
-const path = require("path");
-
-//Creates our express server
+const express = require('express');
+const hbs = require('hbs');
 const app = express();
 const port = 3000;
 
-//Serves static files (we need it to import a css file)
-app.use(express.static(path.join(__dirname, "public")));
-app.set("view engine", "hbs");
+// Set the view engine to Handlebars
+app.set('view engine', 'hbs');
 app.set('views', './views');
-app.use(bodyParser.urlencoded({ extended: true }));
 
-//Sets a basic route
+// Register partials
+hbs.registerPartials('./views/partials')
 
-// Render the initial page with the number input form
-app.get("/", (req, res) => {
-  res.render("draw");
+// Serve static files from the "public" folder
+app.use(express.static('public'));
+
+// Middleware to parse URL-encoded bodies (form data)
+app.use(express.urlencoded({ extended: true }));
+
+// Define a route
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-// Create express route binder for draw.hbs and get the data from the url as parameters
-// that came from index.hbs
+// Handle form submission
 app.post('/submit', (req, res) => { 
   const { name } = req.body;
-  res.render("draw");
+  res.render('draw');
 });
 
-//Makes the app listen to port 3000
-app.listen(port, () => console.log(`App listening to port ${port}`));
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
