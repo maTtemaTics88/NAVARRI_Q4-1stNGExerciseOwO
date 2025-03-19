@@ -21,14 +21,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.post('/submit', (req, res) => { 
-  const { sideLength } = req.body;
-  res.render('draw', { sideLength });
-});
-
 // Handle form submission
 app.get('/draw', (req, res) => { 
-  const { data } = req.body;
+  const { data } = req.query;
   res.render('draw', { data });
 });
 
