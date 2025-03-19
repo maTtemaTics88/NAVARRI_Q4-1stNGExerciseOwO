@@ -13,6 +13,7 @@ const port = 3000;
 //Serves static files (we need it to import a css file)
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "hbs");
+app.set('views', './views');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Sets a basic route
