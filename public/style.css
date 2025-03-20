@@ -129,7 +129,7 @@ img{
   50% {
     transform: rotate(135deg) translate(0px, 0px);
   }
-  100% {
+  100% { 
     transform: rotate(135deg) translate(-110px, -110px);
   }
 }
