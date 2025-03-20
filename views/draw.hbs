@@ -28,7 +28,7 @@
 
     <!-- Start Content -->
     <div id="home" class="w3-container w3-content w3-padding-64">
-        <h2>Triangle with base {{sideLength}} and hieght {{sideLength2}} </h2>
+        <h2>Triangle with base {{sideLength}} and height {{sideLength2}} </h2>
         <canvas class=" w3-white" id="mycanvas" width="100" height="100"> 
           <!-- do not remove, this defines the drawing area/canvas with size of 100 by 100 -->
         </canvas>
@@ -59,7 +59,7 @@
             ctx.lineTo(o, o);
 
             // for placing text
-            ctx.fillText(b, o + (b / 2), o + b);
+            ctx.fillText(b, o + (b / 2), o + h);
             ctx.fillText(h, o, o + (h / 2));
             ctx.fillText(l, o + (b / 2), o + (h / 2));
             
