@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
 });
 
 // Handle form submission
-app.post('/submit', (req, res) => { 
-  const { sideLength } = req.body;
-  const { sideLength2 } = req.body;
+app.get('/draw', (req, res) => { 
+  const { sideLength } = req.query;
+  const { sideLength2 } = req.query;
   res.render('draw', { sideLength, sideLength2 });
 });
 
